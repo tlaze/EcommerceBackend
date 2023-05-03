@@ -5,7 +5,6 @@ import lombok.*;
 
 @Data
 @Entity
-@Table(name="users")
 public class EcommerceUser {
 
     @Id

@@ -2,12 +2,11 @@ package revature.com.eCommerce.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import revature.com.eCommerce.Model.EcommerceUser;
 import revature.com.eCommerce.Service.EcommerceService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping
@@ -24,6 +23,11 @@ public class EcommerceController {
     public ResponseEntity signup(@RequestBody EcommerceUser user){
         userService.signup(user);
         return ResponseEntity.ok("User Successfully Added");
+    }
+
+    @GetMapping
+    public List<EcommerceUser> getAllUsers(){
+        return userService.getAllUsers();
     }
 
 }

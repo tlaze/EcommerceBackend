@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import revature.com.eCommerce.ECommerceApplication;
 import revature.com.eCommerce.Model.EcommerceUser;
 
+import java.util.List;
+
 @Service
 public class EcommerceService {
 
@@ -15,5 +17,9 @@ public class EcommerceService {
 
     public EcommerceUser signup(EcommerceUser user){
         return ecommerceInterface.save(user);
+    }
+
+    public List<EcommerceUser> getAllUsers(){
+        return ecommerceInterface.findAll();
     }
 }
