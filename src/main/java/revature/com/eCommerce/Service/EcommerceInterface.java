@@ -6,4 +6,5 @@ import revature.com.eCommerce.Model.EcommerceUser;
 
 @Repository
 public interface EcommerceInterface extends JpaRepository<EcommerceUser,Long> {
+    EcommerceUser findByUsernameAndPassword(String username, String password);
 }

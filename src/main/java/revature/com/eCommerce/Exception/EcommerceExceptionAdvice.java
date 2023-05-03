@@ -1,4 +1,5 @@
 package revature.com.eCommerce.Exception;
 
-public class EcommerceExceptionAdvice {
+public class EcommerceExceptionAdvice extends RuntimeException {
+
 }
