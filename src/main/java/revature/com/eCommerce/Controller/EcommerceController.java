@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import revature.com.eCommerce.Exception.UserNotFoundException;
+import revature.com.eCommerce.Model.EcommerceProduct;
 import revature.com.eCommerce.Model.EcommerceUser;
 import revature.com.eCommerce.Service.EcommerceService;
 
@@ -19,9 +20,11 @@ public class EcommerceController {
 
     @Autowired
     EcommerceService userService;
+    EcommerceService productService;
 
-    public EcommerceController(EcommerceService userService){
+    public EcommerceController(EcommerceService userService, EcommerceService productService){
         this.userService = userService;
+        this.productService = productService;
     }
 
     @PostMapping("signup")
@@ -44,6 +47,11 @@ public class EcommerceController {
         catch(UserNotFoundException e){
             return ResponseEntity.ok("User is not registered");
         }
+    }
+
+    @GetMapping("home")
+    public List<EcommerceProduct> getAllProducts(){
+        return productService.getAllProducts();
     }
 
 

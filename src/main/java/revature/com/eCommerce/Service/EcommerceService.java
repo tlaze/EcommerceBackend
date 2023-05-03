@@ -1,10 +1,8 @@
 package revature.com.eCommerce.Service;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import revature.com.eCommerce.ECommerceApplication;
-import revature.com.eCommerce.Exception.EcommerceExceptionAdvice;
 import revature.com.eCommerce.Exception.UserNotFoundException;
+import revature.com.eCommerce.Model.EcommerceProduct;
 import revature.com.eCommerce.Model.EcommerceUser;
 
 import java.util.List;
@@ -12,22 +10,24 @@ import java.util.List;
 @Service
 public class EcommerceService {
 
-    EcommerceInterface ecommerceInterface;
+    UserInterface userInterface;
+    ProductInterface productInterface;
 
-    public EcommerceService(EcommerceInterface ecommerceInterface) {
-        this.ecommerceInterface = ecommerceInterface;
+    public EcommerceService(UserInterface userInterface, ProductInterface productInterface) {
+        this.userInterface = userInterface;
+        this.productInterface = productInterface;
     }
 
     public EcommerceUser signup(EcommerceUser user){
-        return ecommerceInterface.save(user);
+        return userInterface.save(user);
     }
 
     public List<EcommerceUser> getAllUsers(){
-        return ecommerceInterface.findAll();
+        return userInterface.findAll();
     }
 
     public EcommerceUser login(String username, String password){
-        EcommerceUser userLogin = ecommerceInterface.findByUsernameAndPassword(username, password);
+        EcommerceUser userLogin = userInterface.findByUsernameAndPassword(username, password);
 
         if(userLogin == null){
             throw new UserNotFoundException("User is not registered");
@@ -35,5 +35,9 @@ public class EcommerceService {
         else{
             return userLogin;
         }
+    }
+
+    public List<EcommerceProduct> getAllProducts(){
+        return productInterface.findAll();
     }
 }
