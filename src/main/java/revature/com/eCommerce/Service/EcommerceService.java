@@ -40,4 +40,11 @@ public class EcommerceService {
     public List<EcommerceProduct> getAllProducts(){
         return productInterface.findAll();
     }
+
+    public EcommerceProduct addToCart(long productId, EcommerceProduct product){
+        EcommerceUser user = userInterface.findById(productId).get();
+        user.getCart().add(product);
+        product.setUser(user);
+        return productInterface.save(product);
+    }
 }

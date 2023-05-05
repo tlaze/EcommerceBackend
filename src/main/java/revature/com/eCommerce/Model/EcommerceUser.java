@@ -3,6 +3,8 @@ package revature.com.eCommerce.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @Entity
 public class EcommerceUser {
@@ -16,5 +18,8 @@ public class EcommerceUser {
 
     @Column
     private String password;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    List<EcommerceProduct> cart;
 
 }

@@ -5,10 +5,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import revature.com.eCommerce.Model.EcommerceProduct;
+import revature.com.eCommerce.Model.EcommerceUser;
 import revature.com.eCommerce.Service.ProductInterface;
 
 @SpringBootApplication
 public class ECommerceApplication {
+
+	EcommerceUser user;
 	public static void main(String[] args) {
 		SpringApplication.run(ECommerceApplication.class, args);
 	}
@@ -16,9 +19,9 @@ public class ECommerceApplication {
 	@Bean
 	public CommandLineRunner cmd (ProductInterface productInterface){
 		return args ->{
-			EcommerceProduct p = new EcommerceProduct(1,"shirt", "red", 10);
+			EcommerceProduct p = new EcommerceProduct(1,"shirt", "red", 10, user);
 			productInterface.save(p);
-			p = new EcommerceProduct(2,"pants", "blue", 15);
+			p = new EcommerceProduct(2,"pants", "blue", 15,user);
 			productInterface.save(p);
 
 		};

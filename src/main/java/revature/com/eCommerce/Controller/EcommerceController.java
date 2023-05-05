@@ -1,5 +1,6 @@
 package revature.com.eCommerce.Controller;
 
+import jakarta.persistence.PreUpdate;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,6 +53,12 @@ public class EcommerceController {
     @GetMapping("home")
     public List<EcommerceProduct> getAllProducts(){
         return productService.getAllProducts();
+    }
+
+    @PostMapping("cart/{productId}")
+    public ResponseEntity addToCart(@PathVariable long productId, @RequestBody EcommerceProduct product){
+        productService.addToCart(productId, product);
+        return ResponseEntity.ok("Item added to cart");
     }
 
 
