@@ -42,7 +42,7 @@ public class EcommerceController {
     @PostMapping("login")
     public ResponseEntity login(@RequestBody EcommerceUser user){
         try{
-            userService.login(user.getUsername(), user.getPassword());
+            userService.login(user);
             return ResponseEntity.ok("User Successfully Logged In");
         }
         catch(UserNotFoundException e){

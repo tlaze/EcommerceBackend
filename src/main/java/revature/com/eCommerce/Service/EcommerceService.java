@@ -27,8 +27,8 @@ public class EcommerceService {
         return userInterface.findAll();
     }
 
-    public EcommerceUser login(String username, String password){
-        EcommerceUser userLogin = userInterface.findByUsernameAndPassword(username, password);
+    public EcommerceUser login(EcommerceUser user){
+        EcommerceUser userLogin = userInterface.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 
         if(userLogin == null){
             throw new UserNotFoundException("User is not registered");
