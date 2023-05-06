@@ -61,6 +61,14 @@ public class EcommerceController {
         return ResponseEntity.ok("Item added to cart");
     }
 
+    @PatchMapping("cart/{id}")
+    public ResponseEntity checkout(@PathVariable long id){
+        productService.checkout(id);
+        return ResponseEntity.ok("Your Order Is Completed.");
+    }
+
+
+
 
 
 }

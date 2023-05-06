@@ -5,6 +5,7 @@ import revature.com.eCommerce.Exception.UserNotFoundException;
 import revature.com.eCommerce.Model.EcommerceProduct;
 import revature.com.eCommerce.Model.EcommerceUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,6 +46,15 @@ public class EcommerceService {
         EcommerceUser user = userInterface.findById(productId).get();
         user.getCart().add(product);
         product.setUser(user);
+        user.setBalance((user.getBalance()) + product.getPrice());
         return productInterface.save(product);
+    }
+
+    public EcommerceUser checkout(long id){
+        EcommerceUser user = userInterface.findById(id).get();
+        user.getCart().clear();
+        user.setBalance(0);
+        return userInterface.save(user);
+
     }
 }

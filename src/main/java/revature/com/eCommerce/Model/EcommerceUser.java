@@ -19,6 +19,9 @@ public class EcommerceUser {
     @Column
     private String password;
 
+    @Column
+    public double balance;
+
     @OneToMany(fetch = FetchType.EAGER)
     List<EcommerceProduct> cart;
 
