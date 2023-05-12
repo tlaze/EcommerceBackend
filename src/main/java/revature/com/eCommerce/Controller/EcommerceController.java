@@ -29,10 +29,9 @@ public class EcommerceController {
         this.productService = productService;
     }
 
-    @PostMapping("signup")
-    public ResponseEntity signup(@RequestBody EcommerceUser user){
-        userService.signup(user);
-        return ResponseEntity.ok("User Successfully Added");
+    @PostMapping("registration")
+    public EcommerceUser signup(@RequestBody EcommerceUser user){
+        return userService.signup(user);
     }
 
     @GetMapping
@@ -40,15 +39,9 @@ public class EcommerceController {
         return userService.getAllUsers();
     }
 
-    @PostMapping("login")
-    public ResponseEntity login(@RequestBody EcommerceUser user){
-        try{
-            userService.login(user);
-            return ResponseEntity.ok("User Successfully Logged In");
-        }
-        catch(UserNotFoundException e){
-            return ResponseEntity.ok("User is not registered");
-        }
+    @PatchMapping("registration/{id}")
+    public EcommerceUser login(@RequestBody EcommerceUser user, @PathVariable long id){
+        return userService.login(user,id);
     }
 
     @GetMapping("home")

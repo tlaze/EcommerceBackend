@@ -22,6 +22,9 @@ public class EcommerceUser {
     @Column
     public double balance;
 
+    @Column
+    public Boolean isLoggedIn;
+
     @OneToMany(fetch = FetchType.EAGER)
     List<EcommerceProduct> cart;
 

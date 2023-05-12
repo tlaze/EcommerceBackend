@@ -5,7 +5,6 @@ import revature.com.eCommerce.Exception.UserNotFoundException;
 import revature.com.eCommerce.Model.EcommerceProduct;
 import revature.com.eCommerce.Model.EcommerceUser;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,15 +26,10 @@ public class EcommerceService {
         return userInterface.findAll();
     }
 
-    public EcommerceUser login(EcommerceUser user){
-        EcommerceUser userLogin = userInterface.findByUsernameAndPassword(user.getUsername(), user.getPassword());
-
-        if(userLogin == null){
-            throw new UserNotFoundException("User is not registered");
-        }
-        else{
-            return userLogin;
-        }
+    public EcommerceUser login(EcommerceUser user, long id){
+        EcommerceUser userLogin = userInterface.findById(id).get();
+        userLogin.setIsLoggedIn(user.getIsLoggedIn());
+        return userLogin;
     }
 
     public List<EcommerceProduct> getAllProducts(){
