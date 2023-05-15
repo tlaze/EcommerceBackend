@@ -29,6 +29,7 @@ public class EcommerceService {
     public EcommerceUser login(EcommerceUser user, long id){
         EcommerceUser userLogin = userInterface.findById(id).get();
         userLogin.setIsLoggedIn(user.getIsLoggedIn());
+        userInterface.save(userLogin);
         return userLogin;
     }
 
