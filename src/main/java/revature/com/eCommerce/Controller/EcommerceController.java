@@ -49,10 +49,9 @@ public class EcommerceController {
         return productService.getAllProducts();
     }
 
-    @PostMapping("cart/{productId}")
-    public ResponseEntity addToCart(@PathVariable long productId, @RequestBody EcommerceProduct product){
-        productService.addToCart(productId, product);
-        return ResponseEntity.ok("Item added to cart");
+    @PostMapping("cart/{accountID}")
+    public EcommerceProduct addToCart(@PathVariable long accountID, @RequestBody EcommerceProduct product){
+        return productService.addToCart(accountID, product);
     }
 
     @PatchMapping("cart/{id}")
