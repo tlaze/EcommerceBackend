@@ -19,11 +19,24 @@ public class ECommerceApplication {
 	@Bean
 	public CommandLineRunner cmd (ProductInterface productInterface){
 		return args ->{
-			EcommerceProduct p = new EcommerceProduct(1,"shirt", "red", 10, user);
+			EcommerceProduct p = new EcommerceProduct(1,"shirt", "red",5, 10, "https://dummyimage.com/300x200/000/fff", user);
 			productInterface.save(p);
-			p = new EcommerceProduct(2,"pants", "blue", 15,user);
+			p = new EcommerceProduct(2,"pants", "blue", 15,5, "https://dummyimage.com/300x200/000/fff",user);
 			productInterface.save(p);
-
+			p = new EcommerceProduct(3,"pants", "blue", 15,5, "https://dummyimage.com/300x200/000/fff",user);
+			productInterface.save(p);
+			p = new EcommerceProduct(4,"pants", "blue", 15,5, "https://dummyimage.com/300x200/000/fff",user);
+			productInterface.save(p);
+			p = new EcommerceProduct(5,"pants", "blue", 15,5, "https://dummyimage.com/300x200/000/fff",user);
+			productInterface.save(p);
+			p = new EcommerceProduct(6,"pants", "blue", 15,5, "https://dummyimage.com/300x200/000/fff",user);
+			productInterface.save(p);
+			p = new EcommerceProduct(7,"pants", "blue", 15,5, "https://dummyimage.com/300x200/000/fff",user);
+			productInterface.save(p);
+			p = new EcommerceProduct(8,"pants", "blue", 15,5, "https://dummyimage.com/300x200/000/fff",user);
+			productInterface.save(p);
+			p = new EcommerceProduct(9,"pants", "blue", 15,5, "https://dummyimage.com/300x200/000/fff",user);
+			productInterface.save(p);
 		};
 	}
 
