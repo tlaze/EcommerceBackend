@@ -40,8 +40,8 @@ public class EcommerceController {
     }
 
     @PatchMapping("registration/{id}")
-    public EcommerceUser login(@RequestBody EcommerceUser user, @PathVariable long id){
-        return userService.login(user,id);
+    public EcommerceUser changeLoginStatus(@RequestBody EcommerceUser user, @PathVariable long id){
+        return userService.changeLoginStatus(user,id);
     }
 
     @GetMapping("home")

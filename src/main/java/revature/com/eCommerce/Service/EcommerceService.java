@@ -26,7 +26,7 @@ public class EcommerceService {
         return userInterface.findAll();
     }
 
-    public EcommerceUser login(EcommerceUser user, long id){
+    public EcommerceUser changeLoginStatus(EcommerceUser user, long id){
         EcommerceUser userLogin = userInterface.findById(id).get();
         userLogin.setIsLoggedIn(user.getIsLoggedIn());
         userInterface.save(userLogin);
