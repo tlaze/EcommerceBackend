@@ -54,6 +54,11 @@ public class EcommerceController {
         return productService.addToCart(accountID, product);
     }
 
+    @GetMapping("registration/{accountID}")
+    public EcommerceUser getCartByID(@PathVariable long accountID){
+        return userService.getCartByID(accountID);
+    }
+
     @PatchMapping("cart/{id}")
     public ResponseEntity checkout(@PathVariable long id){
         productService.checkout(id);

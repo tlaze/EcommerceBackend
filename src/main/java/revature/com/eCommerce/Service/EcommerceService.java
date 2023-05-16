@@ -45,6 +45,11 @@ public class EcommerceService {
         return productInterface.save(product);
     }
 
+    public EcommerceUser getCartByID(long id){
+        EcommerceUser user = userInterface.findById(id).get();
+        return user;
+    }
+
     public EcommerceUser checkout(long id){
         EcommerceUser user = userInterface.findById(id).get();
         user.getCart().clear();
