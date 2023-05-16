@@ -60,13 +60,7 @@ public class EcommerceController {
     }
 
     @PatchMapping("cart/{id}")
-    public ResponseEntity checkout(@PathVariable long id){
-        productService.checkout(id);
-        return ResponseEntity.ok("Your Order Is Completed.");
+    public EcommerceUser checkout(@PathVariable long id){
+        return productService.checkout(id);
     }
-
-
-
-
-
 }
