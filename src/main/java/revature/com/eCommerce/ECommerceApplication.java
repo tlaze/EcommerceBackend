@@ -19,24 +19,19 @@ public class ECommerceApplication {
 	@Bean
 	public CommandLineRunner cmd (ProductInterface productInterface){
 		return args ->{
-			EcommerceProduct p = new EcommerceProduct(1,"shirt", 10, "https://dummyimage.com/300x200/000/fff", user);
+			EcommerceProduct p = new EcommerceProduct(1,"Sparky", 25, "http://placekitten.com/300/200", user);
 			productInterface.save(p);
-			p = new EcommerceProduct(2,"pants",5, "https://dummyimage.com/300x200/000/fff",user);
+			p = new EcommerceProduct(2,"Meatball",25, "http://placekitten.com/300/200",user);
 			productInterface.save(p);
-			p = new EcommerceProduct(3,"pants",5, "https://dummyimage.com/300x200/000/fff",user);
+			p = new EcommerceProduct(3,"Tiger",25, "http://placekitten.com/300/200",user);
 			productInterface.save(p);
-			p = new EcommerceProduct(4,"pants",5, "https://dummyimage.com/300x200/000/fff",user);
+			p = new EcommerceProduct(4,"Luna",35, "http://placekitten.com/300/200",user);
 			productInterface.save(p);
-			p = new EcommerceProduct(5,"pants", 5, "https://dummyimage.com/300x200/000/fff",user);
+			p = new EcommerceProduct(5,"Oliver", 45, "http://placekitten.com/300/200",user);
 			productInterface.save(p);
-			p = new EcommerceProduct(6,"pants",5, "https://dummyimage.com/300x200/000/fff",user);
+			p = new EcommerceProduct(6,"Otto",50, "http://placekitten.com/300/200",user);
 			productInterface.save(p);
-			p = new EcommerceProduct(7,"pants",5, "https://dummyimage.com/300x200/000/fff",user);
-			productInterface.save(p);
-			p = new EcommerceProduct(8,"pants", 5, "https://dummyimage.com/300x200/000/fff",user);
-			productInterface.save(p);
-			p = new EcommerceProduct(9,"pants",5, "https://dummyimage.com/300x200/000/fff",user);
-			productInterface.save(p);
+
 		};
 	}
 
